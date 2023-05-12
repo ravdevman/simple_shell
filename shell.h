@@ -1,7 +1,6 @@
-								/* by Rayane Madoune && Mohamed Amine Barid */
 #ifndef SHELL_H
 #define SHELL_H
-
+								/* by Rayane Madoune && Mohamed Amine Barid */
 										/*Libraries*/
 #include <stdio.h>
 #include <string.h>
