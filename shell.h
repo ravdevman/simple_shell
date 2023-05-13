@@ -16,4 +16,9 @@
 #include <ctype.h>
 #include <errno.h>
 
+
+/*functions prototypes*/
+
+int split_input(char *userInput, char *input_cp, char *token, ssize_t checkEOF, char ***argv);
+
 #endif
