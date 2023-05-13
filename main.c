@@ -14,9 +14,11 @@
 int main(int ac, char **argv)
 {
 	char *prompt = "SHLILO $ "; /*the name*/
-	char *userInput; /*were to save the user input*/
+	char *userInput, *input_cp = NULL; /*were to save the user input, and the copy of user input*/
 	size_t n = 0; /*store the allocated size*/
 	ssize_t checkEOF;
+	char *d = " ", *token; /*separationn of strtok*/
+	int tk_count = 0, i = 0;
 
 	while (1)
 	{
@@ -31,6 +33,34 @@ int main(int ac, char **argv)
 		}
 		printf("%s\n", userInput); /*if input is good print it normaly*/
 	}
+
+	input_cp = malloc(sizeof(char) * checkEOF);
+	if (input_cp == NULL)
+	{
+		perror("tsh: memory allocation error");
+		return (-1);
+	}
+	strcpy(input_cp, userInput);
+
+	token = strtok(userInput, d);
+	for (tk_count = 0; token != NULL; tk_count++)
+	{
+		token = strtok(NULL, d);
+	}
+
+	argv = malloc(sizeof(char) * tk_count);
+
+	token = strtok(input_cp, d);
+
+	for (i = 0; token != NULL; i++)
+	{
+		argv[i] = malloc(sizeof(char) * strlen(token));
+		strcpy(argv[i], token);
+
+		token = strtok(NULL, d);
+	}
+	argv[i] = NULL;
+
 		free(userInput); /*free the allocated mempory*/
 	return (0);
 }
