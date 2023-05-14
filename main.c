@@ -24,7 +24,7 @@ int main(int ac, char **argv)
 		printf("%s", prompt); /*print the name*/
 		checkEOF = getline(&userInput, &n, stdin); /*get the user input*/
 		/* if getline quit (ctrl + D) then its gonna return the value -1 */
-		if (checkEOF == -1) 
+		if (checkEOF == -1)
 		{
 			printf("bye bye ciaooo man !\n");
 			free(userInput);

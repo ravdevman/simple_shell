@@ -15,10 +15,9 @@
 #include <signal.h>
 #include <ctype.h>
 #include <errno.h>
-
-
 /*functions prototypes*/
-
 int split_input(char *userInput, char *input_cp, char *token, ssize_t checkEOF, char ***argv);
-
+/*Primary Functions*/
+size_t _strlen(const char *str);
+char *_strcpy(char *dest, const char *src);
 #endif
