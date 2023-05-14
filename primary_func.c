@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
 * _strcpy - copy a string from the source to a destination.
 * @dest: destination.
@@ -12,7 +13,7 @@ char *_strcpy(char *dest, const char *src)
 	char *var = dest;
 
 	if (dest == NULL)
-		return(NULL);
+		return (NULL);
 
 	while (*src != '\0')
 	{
