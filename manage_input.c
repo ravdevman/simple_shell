@@ -30,7 +30,7 @@ int prompt(void)
  * @argv: the arguments
  *
  * Return: 0
-*/
+ */
 
 
 int split_input(char *userInput, char *input_cp, char *token, ssize_t checkEOF, char ***argv)
@@ -61,4 +61,39 @@ int split_input(char *userInput, char *input_cp, char *token, ssize_t checkEOF, 
 	free(input_cp);
 	free(token);
 	return (0);
+}
+
+/**
+ * read_line - reads stdin and stores it in a buffer.
+ *
+ * Return: a pointer to the buffer
+ */
+
+char *read_line(void)
+{
+
+	ssize_t rd_count = 0; /* read count */
+	size_t x = 0;
+	char *buff; /* BUFFER */
+	int i = 0;
+
+	rd_count = getline(&buff, &x, stdin);
+	if (rd_count == -1)
+	{
+		free(buff);
+		if (isatty(STDIN_FILENO) != 0)
+			write(STDOUT_FILENO, "\n", 1);
+		exit(0);
+	}
+	if (buff[rd_count - 1] == '\n' || buff[rd_count - 1] == '\t')
+		buff[rd_count - 1] = '\0';
+	for (i = 0; buff[i]; i++)
+	{
+		if (buff[i] == '#' && buff[i - 1] == ' ')
+		{
+			buff[i] = '\0';
+			break;
+		}
+	}
+	return (buff);
 }
