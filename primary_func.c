@@ -77,10 +77,44 @@ char *_strdup(const char *s)
 	return (destination);
 }
 
+/**
+ * str_cat - concatenate two strings.
+ * @dest : destination.
+ * @src : source.
+ *
+ * Return: the concatenation of the strings.
+ */
+
+char *str_cat(char *dest, char *src)
+{
+
+	int x, y;
+
+	for (x = 0; dest[x] != '\0'; x++)
+		;
+	for (y = 0; src[y] != '\0'; y++, x++)
+		dest[x] = src[y];
+	dest[x] = '\0';
+	return (dest);
+}
 
 
 
-
-
-
-
+/**
+ * _strcmp - compares two strings.
+ * @str1 : char.
+ * @str2: char.
+ * Return: integer.
+ */
+int _strcmp(const char *str1, const char *str2)
+{
+	while ((*str1 != '\0' && *str2 != '\0') && *str1 == *str2)
+	{
+		str1++;
+		str2++;
+	}
+	if (*str1 == *str2)
+		return (0);
+	else
+		return (*str1 - *str2);
+}
