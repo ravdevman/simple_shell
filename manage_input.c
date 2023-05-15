@@ -22,69 +22,28 @@ int prompt(void)
 }
 
 /**
- * split_input - this function tokenize the userinput
- * @userInput: the input of the user
- * @input_cp: a copy of the input
- * @token: tokens
- * @checkEOF: the number of char
- * @argv: the arguments
- *
- * Return: 0
- */
-
-
-int split_input(char *userInput, char *input_cp, char *token, ssize_t checkEOF, char ***argv)
-{
-	char *d = " ";
-	int tk_count = 0, i = 0;
-
-	input_cp = malloc(sizeof(char) * checkEOF);
-	if (input_cp == NULL)
-	{
-		perror("tsh: memory allocation error");
-		return (-1);
-	}
-	_strcpy(input_cp, userInput);
-	token = strtok(userInput, d);
-	for (tk_count = 0; token != NULL; tk_count++)
-		token = strtok(NULL, d);
-
-	*argv = malloc(sizeof(char) * tk_count);
-	token = strtok(input_cp, d);
-	for (i = 0; token != NULL; i++)
-	{
-		(*argv)[i] = malloc(sizeof(char) * _strlen(token));
-		_strcpy((*argv)[i], token);
-		token = strtok(NULL, d);
-	}
-	(*argv)[i] = NULL;
-	free(input_cp);
-	free(token);
-	return (0);
-}
-
-/**
- * read_line - reads stdin and stores it in a buffer.
+ * read_line - reads the userinput and stores it in a buffer.
  *
  * Return: a pointer to the buffer
  */
 
 char *read_line(void)
 {
-
 	ssize_t rd_count = 0; /* read count */
-	size_t x = 0;
+	size_t n_cahr = 0; /*the number of caracter*/
 	char *buff; /* BUFFER */
 	int i = 0;
 
-	rd_count = getline(&buff, &x, stdin);
+	rd_count = getline(&buff, &n_cahr, stdin);
+	/* if getline quit (ctrl + D) then its gonna return the value -1 */
 	if (rd_count == -1)
 	{
 		free(buff);
 		if (isatty(STDIN_FILENO) != 0)
-			write(STDOUT_FILENO, "\n", 1);
+			write(STDOUT_FILENO, "bye :( ...", 10);
 		exit(0);
 	}
+	/*special char handling*/
 	if (buff[rd_count - 1] == '\n' || buff[rd_count - 1] == '\t')
 		buff[rd_count - 1] = '\0';
 	for (i = 0; buff[i]; i++)

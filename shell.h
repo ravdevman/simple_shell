@@ -19,7 +19,7 @@
 
 /*functions prototypes*/
 int prompt();
-int split_input(char *userInput, char *input_cp, char *token, ssize_t checkEOF, char ***argv);
+char *read_line(void);
 
 /*Primary Functions*/
 size_t _strlen(const char *str);
