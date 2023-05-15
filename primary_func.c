@@ -44,3 +44,43 @@ size_t _strlen(const char *str)
 
 	return (len);
 }
+
+
+/**
+ * _strdup - duplicates a string.
+ * @s : string to duplicate.
+ *
+ * Return: duplicated string
+ */
+
+char *_strdup(const char *s)
+{
+
+	char *destination;
+	int i = 0;
+
+	if (s == NULL)
+		return (NULL);
+
+	while (s[i])
+		i++;
+
+	destination = malloc(sizeof(char) * (i + 1));
+	if (destination == NULL)
+		return (NULL);
+
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		destination[i] = s[i];
+	}
+	destination[i] != '\0';
+	return (destination);
+}
+
+
+
+
+
+
+
+
