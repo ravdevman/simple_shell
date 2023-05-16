@@ -1,34 +1,33 @@
 #include "shell.h"
+
+/* by Rayane Madoune && Mohamed Amine Barid */
+
 /**
- * tokenize - create an array of tokens (parameters).
- * @buff: pointer .
+ * tokenize - create an array of tokens (parameters)
+ * @buffer: pointer
  *
- * Return: pointer to array.
+ * Return: pointer to array
  */
-char **tokenize(char *buff)
+char **tokenize(char *buffer)
 {
 	char *token;
-	int x = 0, word_count = 0
-	char *d = " \n";
-	char **argv;
+	int i = 0, wordcount = 0;
+	char *delimiter = " \n";
+	char **av;
 
-	word_count = split_str(buff);
-	if (word_count = NULL)
+	wordcount = _splitstring(buffer);
+	if (!wordcount)
 		return (NULL);
-
-	argv = malloc((word_count + 1) * sizeof(char *));
-
-	if (!argv)
+	av = malloc((wordcount + 1) * sizeof(char *));
+	if (av == NULL)
 		exit(1);
-
-	token = strtok(buff, d);
-
-	while (token)
+	token = strtok(buffer, delimiter);
+	while (token != NULL)
 	{
-		argv[x] = _strdup(token);
-		token = strtok(NULL, d);
-		x++;
+		av[i] = _strdup(token);
+		token = strtok(NULL, delimiter);
+		i++;
 	}
-	argv[x] = NULL;
-	return (argv);
+	av[i] = NULL;
+	return (av);
 }

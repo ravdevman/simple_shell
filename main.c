@@ -4,27 +4,39 @@
 
 /**
  * main - the main fucntion of simple shell (SHLILO)
- *
- * @ac: the number of arguments
- * @argv: the arguments
- *
  * Return: 0
 */
 
-int main(int ac, char **argv)
+int main(void)
 {
-	char *userInput = NULL, *input_cp = NULL; /*store user input & copy of it*/
-	size_t n = 0; /*store the allocated size*/
-	char *d = " ", *token; /*separationn of strtok*/
+	char *fullpathbuffer = NULL, *copy = NULL, *userInput = NULL;
+	char *PATH = NULL;
+	char **argv;
+	int exitstatus = 0;
 
+	signal(SIGINT, SIG_IGN); /*ance signal*/
+	PATH = _getenv("PATH");
 	while (1)
 	{
+		blue(); /*color of the promt*/
 		prompt();
+		white(); /*reset to normal color*/
 		userInput = read_line(); /*get the user input*/
-		printf("%s\n", userInput); /*testing if the userinput work*/
+		if (*userInput != '\0')
+		{
+			argv = tokenize(userInput);
+			if (argv == NULL)
+			{
+				free(userInput);
+				continue;
+			}
+			fullpathbuffer = _fullpathbuffer(argv, PATH, copy);
+			if (checkbuiltins(argv, userInput, exitstatus) == 1)
+				continue;
+			exitstatus = _forkprocess(argv, userInput, fullpathbuffer);
+		}
+		else
+			free(userInput);
 	}
-	/*free the allocated mempory*/
-	free(argv);
-	free(userInput);
 	return (0);
 }
