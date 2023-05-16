@@ -23,5 +23,5 @@ char *read_line(void);
 
 /*Primary Functions*/
 size_t _strlen(const char *str);
-char *_strcpy(char *dest, const char *src);
+
 #endif

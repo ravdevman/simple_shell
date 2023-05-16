@@ -1,31 +1,31 @@
 #include "shell.h"
 
 /**
-* _strcpy - copy a string from the source to a destination.
-* @dest: destination.
-* @src: source.
+* split_str - count the numb of word and parameters..
+* @str : string of character.
 *
-* Return: copy of the string.
+* Return: the count of word in a string.
 */
 
-char *_strcpy(char *dest, const char *src)
+char *split_str(char *str)
 {
-	char *var = dest;
+	int x;
+	int search_track = 1;
+	int word_count = 0;
 
-	if (dest == NULL)
-		return (NULL);
-
-	while (*src != '\0')
+	for (x = 0; str[x]; x++)
 	{
+		if (str[x] != ' ' && search_track == 1)
+		{
+			word_count += 1;
+			search_track = 0;
 
-		*dest++ = *src++;
+		}
+		if (str[x + 1] == ' ')
+			search_track = 1;
 	}
-
-	*dest = '\0';
-
-	return (var);
+	return (word_count);
 }
-
 
 /**
 * _strlen - length of a string.
