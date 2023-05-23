@@ -1,5 +1,6 @@
 #include "shell.h"
 
+/* by Rayane Madoune && Mohamed Amine Barid */
 
 /**
  *_strtok_r - tokenizes a string

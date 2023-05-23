@@ -1,5 +1,7 @@
 #include "shell.h"
 
+/* by Rayane Madoune && Mohamed Amine Barid */
+
 /**
  * non_interactive - handles non_interactive mode
  *

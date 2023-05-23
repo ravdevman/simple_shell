@@ -1,5 +1,7 @@
 #include "shell.h"
 
+/* by Rayane Madoune && Mohamed Amine Barid */
+
 /**
  *_strcmp - compare two strings
  *@first: first string to be compared

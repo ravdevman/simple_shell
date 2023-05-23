@@ -1,5 +1,7 @@
 #include "shell.h"
 
+/* by Rayane Madoune && Mohamed Amine Barid */
+
 /**
  * tokenizer - tokenizes input and stores it into an array
  *@input_string: input to be parsed

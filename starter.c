@@ -1,5 +1,7 @@
 #include "shell.h"
 
+/* by Rayane Madoune && Mohamed Amine Barid */
+
 /**
  * initializer - starts executing everything
  * @current_command: try to check current token
