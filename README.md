@@ -1,4 +1,3 @@
-
 ![Shlilo](https://github.com/Rayanemadne/simple_shell/blob/main/img/Shlilo_Banner.png?raw=true)
 
 
@@ -14,7 +13,7 @@ we are working on it please be patients.
 
 at: ALX software engineering
 
-## Authors 
+## Authors
 
 - [@Rayanemadne](https://github.com/Rayanemadne)
 - [@seroking](https://github.com/seroking)

@@ -26,7 +26,7 @@ int blue(void);
 
 
 /*functions prototypes*/
-int prompt();
+int prompt(void);
 char *read_line(void);
 char *_fullpathbuffer(char **av, char *PATH, char *copy);
 int checkbuiltins(char **av, char *buffer, int exitstatus);
