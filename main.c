@@ -14,13 +14,11 @@ int main(void)
 	char **argv;
 	int exitstatus = 0;
 
-	signal(SIGINT, SIG_IGN); /*ance signal*/
+	signal(SIGINT, SIG_IGN); /*is to ignor Ctrl+C*/
 	PATH = _getenv("PATH");
 	while (1)
 	{
-		blue(); /*color of the promt*/
 		prompt();
-		white(); /*reset to normal color*/
 		userInput = read_line(); /*get the user input*/
 		if (*userInput != '\0')
 		{

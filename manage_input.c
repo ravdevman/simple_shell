@@ -41,7 +41,6 @@ char *read_line(void)
 		free(buff);
 		if (isatty(STDIN_FILENO) != 0)
 		{
-			red(); /*adding color*/
 			write(STDOUT_FILENO, "bye :( ...", 10);
 		}
 		exit(0);
@@ -161,11 +160,9 @@ int _forkprocess(char **av, char *buffer, char *fullpathbuffer)
 	}
 	if (pid == 0)
 	{
-		green(); /*green color on result*/
 		result = execve(fullpathbuffer, av, environ);
 		if (result == -1)
 		{
-			red(); /*color red on error*/
 			perror(av[0]);
 			for (i = 0; av[i]; i++)
 				free(av[i]);
