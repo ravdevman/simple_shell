@@ -15,5 +15,5 @@ at: ALX software engineering
 
 ## Authors
 
-- [@Rayanemadne](https://github.com/Rayanemadne)
+- [@Rayanemadne](https://github.com/ravdevman)
 - [@seroking](https://github.com/seroking)
